@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE legalnotice PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<legalnotice>
+	<para>
+		Copyright <trademark class="copyright"></trademark> &YEAR; &HOLDER; 
+		This material is subject to copyright law and are made available under the <ulink url="http://docs.joomla.org/JEDL">Joomla! Electronic Documentation License (JEDL)</ulink> unless otherwise stated. You may find the <ulink url="http://docs.joomla.org/JEDL/FAQ">JEDL Frequently Asked Questions</ulink> useful in determining if your proposed use of this material is allowed. If you have any questions regarding licensing of this material please contact <ulink url="legal@opensourcematters.org">legal@opensourcematters.org</ulink>. If you wish to report a possible violation of the license terms for the material on this site then please contact <ulink url="legal@opensourcematters.org">legal@opensourcematters.org</ulink>
+	</para>
+</legalnotice>
+
