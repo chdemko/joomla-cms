@@ -51,6 +51,9 @@ echo "Copy the files from the git repository.\n";
 chdir($repo);
 system('/usr/local/git/bin/git archive ' . $full . ' | tar -x -C ' . $fullpath);
 
+echo "Create MD5SUM.\n";
+chdir($fullpath);
+system('for folder in `find -type d -regex \'\\./\\(\\(administrator/\\)?templates\\|media\\)/.*/\\(css\\|js\\|images\\).*\'`; do find $folder -maxdepth 1 -type f -exec md5sum {} + | awk \'{print $1}\' | sort | md5sum | awk \'{printf("%s", $1)}\' > $folder/MD5SUM; done');
 
 echo "Delete old folders.\n";
 chdir($tmp);
@@ -77,6 +80,11 @@ for($num=0;$num < $release;$num++) {
 	$previousTag = $version . '.' . $num;
 	$command = '/usr/local/git/bin/git diff tags/'. $previousTag . ' tags/' . $full . ' --name-status > diffdocs/'.$version.'.'.$num;
 	system($command);
+
+	// Add MD5SUM files
+	chdir($fullpath);
+	system('find . -name MD5SUM -exec echo -e A"\\t"{} >> ' . $tmp . '/diffdocs/' . $version . '.' . $num . ' \;');
+	chdir($tmp);
 
 	// $newfile will hold the array of files to include in diff package
 	$newfile = array();
